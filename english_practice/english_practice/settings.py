@@ -81,14 +81,15 @@ WSGI_APPLICATION = 'english_practice.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'englishdb',
+        'NAME': 'practicedb',
         'USER': 'postgres',
         'PASSWORD': env('POSTGRESQL_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5000'
+        'HOST': 'localhost'
     }
 }
 
+# authentication definition
+AUTH_USER_MODEL = 'dashboard.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
