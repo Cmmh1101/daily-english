@@ -1,4 +1,6 @@
+{% load static tailwind_tags %}
 {% load static %}
+{% comment %} {% load tailwind %} {% endcomment %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,12 +9,14 @@
     <title>{% block title %}English{% endblock %}</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% comment %} {% tailwindcss %} {% endcomment %}
+    {% tailwind_css %}
     <link rel="stylesheet" href="{% static 'dashboard/styles.css' %}">
   </head>
   <body>
     <div class="container">
       <div>
-        <h1>Daily English</h1>
+        <h1 class="text-purple-600">Daily English</h1>
       </div>
       <hr>
       {% block body %} 
