@@ -51,6 +51,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+TAILWIND_APP_NAME = 'theme'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -66,7 +72,7 @@ ROOT_URLCONF = 'english_practice.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(BASE_DIR/'theme/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,7 +140,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "theme/static/")]
+
+# STATIC_ROOT = os.path.join(BASE_DIR,"theme/static/")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -142,15 +150,9 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # STATIC_ROOT = BASE_DIR / "staticfiles"
-STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+# STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 
 # variables for tailwind
 # BASE_DIR = Path(__file__).resolve().parent
 
-TAILWINDCSS_CLI_FILE = BASE_DIR / 'tailwindcss-macos-x64'
-TAILWINDCSS_CONFIG_FILE = BASE_DIR / 'tailwind.config.js'
 
-# For file mode
-TAILWINDCSS_OUTPUT_FILE = 'styles.css'
-
-TAILWIND_APP_NAME = 'theme'

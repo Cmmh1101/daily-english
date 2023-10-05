@@ -1,6 +1,4 @@
 {% load static tailwind_tags %}
-{% load static %}
-{% comment %} {% load tailwind %} {% endcomment %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,18 +7,23 @@
     <title>{% block title %}English{% endblock %}</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% comment %} {% tailwindcss %} {% endcomment %}
+    <link rel="stylesheet" href="{% static 'dashboard/styles.css' %}" />
     {% tailwind_css %}
-    <link rel="stylesheet" href="{% static 'dashboard/styles.css' %}">
   </head>
   <body>
-    <div class="container">
-      <div>
-        <h1 class="text-purple-600">Daily English</h1>
+    <div class="container mx-auto">
+      <div class="flex justify-between">
+        <a href="/" class="text-purple-600">Daily English</a>
+        <a href="">Login/logout</a>
       </div>
-      <hr>
-      {% block body %} 
-      {% endblock %}
+      <hr />
+      <div class="flex">
+        <nav class="w-1/5 py-3 flex flex-col"><a href="/">Sets list</a><a href="/">Create Set</a><a href="/">Edit Set</a>
+        </nav>
+        <div class="w-4/5 p-3">
+        {% block body %} {% endblock %}
+        </div>
+      </div>
     </div>
   </body>
 </html>
